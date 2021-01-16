@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class LandingPage extends StatefulWidget {
-  LandingPage({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
   final String title = "Landing Page";
 
   @override
-  _LandingPageState createState() => _LandingPageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _LandingPageState extends State<LandingPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(widget.title),
+            Text('hooha'),
           ],
         ),
       ),

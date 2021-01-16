@@ -1,50 +1,118 @@
-
 import 'package:flutter/material.dart';
+import 'package:app/widgets/photo_logo.dart';
+import 'package:app/pages/home_page.dart';
+import 'package:app/pages/signup_page.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _LoginPageState createState() => _LoginPageState();
+void main() {
+  runApp(MaterialApp(
+    home: LoginPage(),
+  ));
 }
 
-class _LoginPageState extends State<LoginPage> {
-  int _counter = 0;
+const users = const {'emilybunny100': '12345'};
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class LoginPage extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<LoginPage> {
+  Duration get loginTime => Duration(milliseconds: 2250);
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: Padding(
+            padding: EdgeInsets.all(10),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  //padding: EdgeInsets.all(1),
+                  child: PhotoWidget(),
+                ),
+                Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Sign in',
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown[200]),
+                    )),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'UserName',
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  child: TextField(
+                    obscureText: true,
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Password',
+                    ),
+                  ),
+                ),
+                FlatButton(
+                  onPressed: () {
+                    //forgot password screen
+                  },
+                  textColor: Colors.brown[200],
+                  child: Text('Forgot Password'),
+                ),
+                Container(
+                    height: 50,
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    child: RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.brown[200],
+                      child: Text('Login'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
+                        print(nameController.text);
+                        print(passwordController.text);
+                      },
+                    )),
+                Container(
+                    child: Row(
+                  children: <Widget>[
+                    Text('Dont have an account?'),
+                    FlatButton(
+                      textColor: Colors.brown[200],
+                      child: Text(
+                        'Create Account',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupPage(),
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                ))
+              ],
+            )));
   }
 }

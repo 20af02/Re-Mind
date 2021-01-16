@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class LandingPage extends StatefulWidget {
-  LandingPage({Key key}) : super(key: key);
+class ForgotPassword extends StatefulWidget {
+  ForgotPassword({Key key}) : super(key: key);
 
   final String title = "Landing Page";
 
   @override
-  _LandingPageState createState() => _LandingPageState();
+  _ForgotPasswordState createState() => _ForgotPasswordState();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
