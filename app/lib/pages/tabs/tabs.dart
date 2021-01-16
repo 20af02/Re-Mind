@@ -1,5 +1,4 @@
-
-import 'package:app/pages/tabs/peope_page.dart';
+import 'package:app/pages/tabs/people_page.dart';
 import 'package:flutter/material.dart';
 
 import 'cam_page.dart';
@@ -9,13 +8,9 @@ import './cam/camera.dart';
 
 import 'package:camera/camera.dart';
 
-
 class Tabs extends StatefulWidget {
-
   final String title = "Re-Mind";
-  final List<CameraDescription> cameras;
-
-  Tabs(this.cameras);
+  Tabs();
   // Tabs({Key key}) : super(key: key);
 
   @override
@@ -27,11 +22,11 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.brown[200],
           bottom: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.camera_alt), text: "Cam"),
@@ -40,15 +35,22 @@ class _TabsState extends State<Tabs> {
               Tab(icon: Icon(Icons.attach_money), text: "financials"),
             ],
           ),
-          title: Text(this.widget.title),
+          title:
+              /*Text(
+            this.widget.title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              fontFamily:
+            ),
+          ),
+        ),*/
+              Image(
+            image: AssetImage('images/remind.png'),
+          ),
         ),
         body: TabBarView(
-          children: [
-            CamPage(),
-            PeoplePage(),
-            ItemPage(),
-            FinancialsPage()
-          ],
+          children: [CamPage(), PeoplePage(), ItemPage(), FinancialsPage()],
         ),
       ),
     );
