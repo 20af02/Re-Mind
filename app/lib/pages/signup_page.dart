@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import '../widgets/example_widget.dart';
+import 'login_page.dart';
 
 class SignupPage extends StatefulWidget {
   SignupPage({Key key}) : super(key: key);
@@ -10,19 +9,13 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text("testing"),
       ),
-
-      body: Center(
-        child: ExampleWidget(message:"work in progress"),
-      ),
+      body: Center(),
     );
   }
 }
