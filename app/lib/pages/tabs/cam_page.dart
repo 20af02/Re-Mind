@@ -16,12 +16,15 @@ class CamPage extends StatefulWidget {
 
 class _CamPageState extends State<CamPage> {
   int cameraIndex = 1;
-  
+
   @override
   Widget build(BuildContext context) {
     print("print: building");
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
+      appBar: AppBar(
+        title: Text(widget.title),
+        backgroundColor: Colors.brown,
+      ),
       body: LiveFeed(),
       // body: CameraScreen(),
       // body: widget.widget,

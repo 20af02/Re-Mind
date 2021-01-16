@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FinancialsPage extends StatefulWidget {
@@ -11,20 +10,38 @@ class FinancialsPage extends StatefulWidget {
 }
 
 class _FinancialsPageState extends State<FinancialsPage> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.brown,
       ),
-
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(widget.title),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            const Divider(color: Colors.brown),
+            ListTile(
+                title:
+                    Text('TD', style: TextStyle(fontWeight: FontWeight.w500)),
+                subtitle: Text('Chequing Balance:'),
+                leading: Image(image: AssetImage('images/TD.png'))),
+            const Divider(color: Colors.brown),
+            ListTile(
+                title:
+                    Text('CIBC', style: TextStyle(fontWeight: FontWeight.w500)),
+                subtitle: Text('Savings Balance:'),
+                leading: Image(image: AssetImage('images/CIBC.png'))),
+            const Divider(color: Colors.brown),
+            ListTile(
+                title: Text('Bank of America',
+                    style: TextStyle(fontWeight: FontWeight.w500)),
+                subtitle: Text('International (USD) balance:'),
+                leading: Image(image: AssetImage('images/BAC.png'))),
+            const Divider(
+              color: Colors.brown,
+            ),
           ],
         ),
       ),

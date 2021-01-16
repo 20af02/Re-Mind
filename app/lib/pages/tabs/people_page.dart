@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class PeoplePage extends StatefulWidget {
+  PeoplePage({Key key}) : super(key: key);
 
-  final String title = "Landing Page";
+  final String title = "Peoples Page";
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _PeoplePageState createState() => _PeoplePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PeoplePageState extends State<PeoplePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.brown,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('hooha'),
+            Text(widget.title),
           ],
         ),
       ),
