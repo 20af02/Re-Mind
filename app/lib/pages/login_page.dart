@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
 import 'package:app/pages/home_page.dart';
 import 'package:app/pages/signup_page.dart';
+import 'package:app/pages/tabs/cam_page.dart';
+import 'package:app/pages/tabs/tabs.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -83,7 +85,7 @@ class _State extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => Tabs(),
                           ),
                         );
                         print(nameController.text);

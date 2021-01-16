@@ -16,7 +16,7 @@ class CamPage extends StatefulWidget {
 
 class _CamPageState extends State<CamPage> {
   int cameraIndex = 1;
-  
+
   @override
   Widget build(BuildContext context) {
     print("print: building");

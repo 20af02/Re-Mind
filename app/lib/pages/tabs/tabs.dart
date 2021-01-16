@@ -1,4 +1,3 @@
-
 import 'package:app/pages/tabs/peope_page.dart';
 import 'package:flutter/material.dart';
 
@@ -9,13 +8,9 @@ import './cam/camera.dart';
 
 import 'package:camera/camera.dart';
 
-
 class Tabs extends StatefulWidget {
-
   final String title = "Re-Mind";
-  final List<CameraDescription> cameras;
-
-  Tabs(this.cameras);
+  Tabs();
   // Tabs({Key key}) : super(key: key);
 
   @override
@@ -27,7 +22,6 @@ class _TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -43,12 +37,7 @@ class _TabsState extends State<Tabs> {
           title: Text(this.widget.title),
         ),
         body: TabBarView(
-          children: [
-            CamPage(),
-            PeoplePage(),
-            ItemPage(),
-            FinancialsPage()
-          ],
+          children: [CamPage(), PeoplePage(), ItemPage(), FinancialsPage()],
         ),
       ),
     );
