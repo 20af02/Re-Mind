@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
+import 'package:app/pages/home_page.dart';
+import 'package:app/pages/signup_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -7,12 +9,16 @@ void main() {
   ));
 }
 
+const users = const {'emilybunny100': '12345'};
+
 class LoginPage extends StatefulWidget {
   @override
   _State createState() => _State();
 }
 
 class _State extends State<LoginPage> {
+  Duration get loginTime => Duration(milliseconds: 2250);
+
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -44,7 +50,7 @@ class _State extends State<LoginPage> {
                     controller: nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'User Name',
+                      labelText: 'UserName',
                     ),
                   ),
                 ),
@@ -74,6 +80,12 @@ class _State extends State<LoginPage> {
                       color: Colors.brown[200],
                       child: Text('Login'),
                       onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
                         print(nameController.text);
                         print(passwordController.text);
                       },
@@ -81,14 +93,21 @@ class _State extends State<LoginPage> {
                 Container(
                     child: Row(
                   children: <Widget>[
-                    Text('Does not have account?'),
+                    Text('Dont have an account?'),
                     FlatButton(
                       textColor: Colors.brown[200],
                       child: Text(
-                        'Sign in',
+                        'Create Account',
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupPage(),
+                          ),
+                        );
+                      },
                     )
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
