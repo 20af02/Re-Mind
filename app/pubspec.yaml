@@ -36,6 +36,8 @@ dependencies:
   dio: ^3.0.9
   loading: ^1.0.2
   aws_s3: ^0.1.1+hotfix.5
+  azblob: ^1.0.3
+  mime: ^0.9.7
 
 
 dev_dependencies:
