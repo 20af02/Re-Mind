@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  image_picker: ^0.6.7
+  image_picker: ^0.6.6+5
   tflite: ^1.1.1
   meta: ^1.1.8
   camera: 0.5.8+10
@@ -33,7 +33,11 @@ dependencies:
   path: ^1.6.4
   path_provider: ^1.6.11
   shared_preferences: ^0.5.6+1
-  
+  dio: ^3.0.9
+  loading: ^1.0.2
+  aws_s3: ^0.1.1+hotfix.5
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
