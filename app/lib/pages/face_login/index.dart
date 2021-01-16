@@ -9,13 +9,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:tflite/tflite.dart';
 import './preview_page.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: FaceLoginPage(),
-  ));
-}
-
-const users = const {'emilybunny100': '12345'};
 
 class FaceLoginPage extends StatefulWidget {
   @override
@@ -36,9 +29,6 @@ class _State extends State<FaceLoginPage> {
     );
   }
 }
-
-
-
 
 
 typedef void Callback(List<dynamic> list, int h, int w);
