@@ -35,13 +35,18 @@ class _TabsState extends State<Tabs> {
               Tab(icon: Icon(Icons.attach_money), text: "financials"),
             ],
           ),
-          title: Text(
+          title:
+              /*Text(
             this.widget.title,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30,
-              /*fontFamily:*/
+              fontFamily:
             ),
+          ),
+        ),*/
+              Image(
+            image: AssetImage('images/remind.png'),
           ),
         ),
         body: TabBarView(
