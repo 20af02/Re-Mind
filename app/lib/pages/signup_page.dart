@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
-import 'package:app/pages/home_page.dart';
+import 'package:app/pages/tabs/cam_page.dart';
 import 'package:app/pages/login_page.dart';
 
 class SignupPage extends StatefulWidget {

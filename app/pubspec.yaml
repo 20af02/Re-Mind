@@ -54,7 +54,9 @@ flutter:
     - assets/models/ssd_mobilenet.tflite
     - assets/models/labels.txt
     - images/rememberbetter.png
-  #   - images/a_dot_ham.jpeg
+    - images/TD.png
+    - images/CIBC.png
+    - images/BAC.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

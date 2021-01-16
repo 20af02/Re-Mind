@@ -1,4 +1,4 @@
-import 'package:app/pages/tabs/peope_page.dart';
+import 'package:app/pages/tabs/people_page.dart';
 import 'package:flutter/material.dart';
 
 import 'cam_page.dart';
@@ -26,6 +26,7 @@ class _TabsState extends State<Tabs> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.brown[200],
           bottom: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.camera_alt), text: "Cam"),
@@ -34,7 +35,14 @@ class _TabsState extends State<Tabs> {
               Tab(icon: Icon(Icons.attach_money), text: "financials"),
             ],
           ),
-          title: Text(this.widget.title),
+          title: Text(
+            this.widget.title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              /*fontFamily:*/
+            ),
+          ),
         ),
         body: TabBarView(
           children: [CamPage(), PeoplePage(), ItemPage(), FinancialsPage()],

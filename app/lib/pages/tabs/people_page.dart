@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class PeoplePage extends StatefulWidget {
@@ -11,16 +10,13 @@ class PeoplePage extends StatefulWidget {
 }
 
 class _PeoplePageState extends State<PeoplePage> {
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.brown,
       ),
-
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
