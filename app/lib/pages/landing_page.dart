@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import '../widgets/example_widget.dart';
 
 class LandingPage extends StatefulWidget {
   LandingPage({Key key}) : super(key: key);
