@@ -88,9 +88,7 @@ class _State extends State<LoginPage> {
                         'Sign in',
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: () {
-                        //signup screen
-                      },
+                      onPressed: () {},
                     )
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
