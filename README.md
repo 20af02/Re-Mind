@@ -21,11 +21,13 @@ set FLASK_APP=path
 set FLASK_ENV=development
 flask run
 ```
-where `path` is the absolute path of X.
+where `path` is the absolute path of the source code.
 
 ### Screenshot(s)
-<p align="center"><img src="helper/Screenshot_20210117-082128.jpg"\></p>
-<p align="center"><img src="simulator.gif"\></p>
+<p float="left">
+  <img src="helper/Screenshot_20210117-082128.jpg" width="150" />
+  <img src="simulator.gif" width="150" /> 
+</p>
 
 ### Example Person tracking
 <p align="center"><img src="helper/Screenshot_20210117-082128.jpg"\></p>
