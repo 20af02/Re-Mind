@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:app/models/remind_models.dart';
 import 'package:flutter/material.dart';
 import 'package:app/pages/tabs/people_page.dart';
 import 'package:app/pages/signup_page.dart';
@@ -6,7 +9,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 
 class PopupPeople extends StatefulWidget {
-  PopupPeople({Key key}) : super(key: key);
+  final Person person;
+  PopupPeople(this.person, {Key key}) : super(key: key);
 
   final String title = "Landing Page";
 
@@ -33,7 +37,7 @@ class _PopupPeopleState extends State<PopupPeople> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(0),
                 child: Text(
-                  'New Face',
+                  widget.person.name,
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -46,62 +50,23 @@ class _PopupPeopleState extends State<PopupPeople> {
               indent: 20,
               endIndent: 0,
             ),
+
+            SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(0),
-              child: TextField(
-                controller: nameController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Edit Name',
-                ),
-              ),
+              alignment: Alignment.center,
+              child: widget.person.path != null ?
+                Image.file(File(widget.person.path), width: 150, height: 150, fit: BoxFit.cover,):
+                Image.network(widget.person.url, width: 150, height: 150, fit: BoxFit.cover,)
             ),
+            
+
+            SizedBox(height: 30),
+
             Container(
-              padding: EdgeInsets.all(0),
-              child: TextField(
-                controller: passwordController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Edit Last Name',
-                ),
-              ),
+              padding: EdgeInsets.all(25),
+               child: Text(widget.person.description)
             ),
-            Container(
-              padding: EdgeInsets.all(0),
-              child: TextField(
-                controller: descriptionController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Description',
-                ),
-              ),
-            ),
-            Container(
-                height: 50,
-                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: RaisedButton(
-                  textColor: Colors.white,
-                  color: Colors.brown[200],
-                  child: Text('Save'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => (Tabs()),
-                      ),
-                    );
-                    print(nameController.text);
-                    print(passwordController.text);
-                    print(descriptionController);
-                  },
-                )),
-            const Divider(
-              color: Colors.brown,
-              height: 20,
-              thickness: 1,
-              indent: 20,
-              endIndent: 0,
-            ),
+
             Container(
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -152,6 +117,35 @@ class _PopupPeopleState extends State<PopupPeople> {
                     ),
                   ]),
                 ])),
+
+
+            Container(
+                height: 50,
+                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: RaisedButton(
+                  textColor: Colors.white,
+                  color: Colors.brown[200],
+                  child: Text('Exit'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => (Tabs()),
+                      ),
+                    );
+                    print(nameController.text);
+                    print(passwordController.text);
+                    print(descriptionController);
+                  },
+                )),
+            const Divider(
+              color: Colors.brown,
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 0,
+            ),
+
           ])),
     );
   }

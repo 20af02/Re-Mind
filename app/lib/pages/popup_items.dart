@@ -1,20 +1,24 @@
+import 'dart:io';
+
+import 'package:app/models/remind_models.dart';
 import 'package:flutter/material.dart';
 import 'package:app/pages/tabs/people_page.dart';
 import 'package:app/pages/signup_page.dart';
-import 'package:app/widgets/item_widget.dart';
 import 'package:app/pages/tabs/tabs.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/cupertino.dart';
 
-class PopupItems extends StatefulWidget {
-  PopupItems({Key key}) : super(key: key);
+class PopupItem extends StatefulWidget {
+  final Item item;
+  PopupItem(this.item, {Key key}) : super(key: key);
 
   final String title = "Landing Page";
 
   @override
-  _PopupItemsState createState() => _PopupItemsState();
+  _PopupItemState createState() => _PopupItemState();
 }
 
-class _PopupItemsState extends State<PopupItems> {
+class _PopupItemState extends State<PopupItem> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
@@ -33,7 +37,7 @@ class _PopupItemsState extends State<PopupItems> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(0),
                 child: Text(
-                  'New Item',
+                  widget.item.name,
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -46,33 +50,82 @@ class _PopupItemsState extends State<PopupItems> {
               indent: 20,
               endIndent: 0,
             ),
+
+            SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(0),
-              child: TextField(
-                controller: nameController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Edit Name',
-                ),
-              ),
+              alignment: Alignment.center,
+              child: widget.item.path != null ?
+                Image.file(File(widget.item.path), width: 150, height: 150, fit: BoxFit.cover,):
+                Image.network(widget.item.lastLocationUrl, width: 150, height: 150, fit: BoxFit.cover,)
             ),
+            
+
+            SizedBox(height: 30),
+
             Container(
-              padding: EdgeInsets.all(0),
-              child: TextField(
-                controller: descriptionController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Description',
-                ),
-              ),
+              padding: EdgeInsets.all(25),
+               child: Text(widget.item.notes)
             ),
+
+            Container(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                  Column(children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.all(5.0),
+                      child: Text(
+                        'Interaction Log',
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.brown[200]),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    const Divider(
+                      color: Colors.brown,
+                      height: 20,
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 0,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(32),
+                      child: Text('Jan 17 1:09AM',
+                          softWrap: true, textAlign: TextAlign.center),
+                      //there should automatically be interactions and dates that popup here
+                    ),
+                    const Divider(
+                      color: Colors.brown,
+                      height: 20,
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 0,
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: LineChart(LineChartData(
+                        titlesData: FlTitlesData(
+                            show: true,
+                            leftTitles:
+                                SideTitles(reservedSize: 6, showTitles: true)),
+                        borderData: FlBorderData(show: false),
+                        lineBarsData: linesBarData1(),
+                      )),
+                    ),
+                  ]),
+                ])),
+
+
             Container(
                 height: 50,
                 padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: RaisedButton(
                   textColor: Colors.white,
                   color: Colors.brown[200],
-                  child: Text('Save'),
+                  child: Text('Exit'),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -92,56 +145,7 @@ class _PopupItemsState extends State<PopupItems> {
               indent: 20,
               endIndent: 0,
             ),
-            Container(
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                  Column(children: <Widget>[
-                    Container(
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(5.0),
-                      child: Text(
-                        'Interaction Log',
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.brown[200]),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const Divider(
-                      color: Colors.black,
-                      height: 20,
-                      thickness: 1,
-                      indent: 20,
-                      endIndent: 0,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(32),
-                      child: Text('Jan 17 1:09AM',
-                          softWrap: true, textAlign: TextAlign.center),
-                      //there should automatically be interactions and dates that popup here
-                    ),
-                    const Divider(
-                      color: Colors.black,
-                      height: 20,
-                      thickness: 5,
-                      indent: 20,
-                      endIndent: 0,
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: LineChart(LineChartData(
-                        titlesData: FlTitlesData(
-                            show: true,
-                            leftTitles:
-                                SideTitles(reservedSize: 6, showTitles: true)),
-                        borderData: FlBorderData(show: false),
-                        lineBarsData: linesBarData1(),
-                      )),
-                    ),
-                  ]),
-                ])),
+
           ])),
     );
   }

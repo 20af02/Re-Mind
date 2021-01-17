@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:app/models/remind_models.dart';
 import 'package:app/pages/tabs/items_page.dart';
+import 'package:app/pages/tabs/tabs.dart';
 import 'package:app/remind_state.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
@@ -32,7 +33,7 @@ class AddItemPageState extends State<AddItemPage> {
         child: ListView(
           children: <Widget>[
             SizedBox(height: 100,),
-            Image.file(File(this.widget.path)),
+            Image.file(File(this.widget.path), width: 200, height: 200, fit: BoxFit.cover,),
             SizedBox(height: 10,),
             Container(
               padding: EdgeInsets.all(10),
@@ -82,7 +83,7 @@ class AddItemPageState extends State<AddItemPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ItemPage(),
+        builder: (context) => Tabs(initialIndex: 2),
       ),
     );
   }

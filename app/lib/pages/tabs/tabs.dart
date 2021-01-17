@@ -10,7 +10,8 @@ import 'package:camera/camera.dart';
 
 class Tabs extends StatefulWidget {
   final String title = "Re-Mind";
-  Tabs();
+  final int initialIndex;
+  Tabs({this.initialIndex=0});
   // Tabs({Key key}) : super(key: key);
 
   @override
@@ -23,6 +24,7 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: this.widget.initialIndex,
       length: 4,
       child: Scaffold(
         appBar: AppBar(

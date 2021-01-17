@@ -14,12 +14,12 @@ class ItemWidget extends StatelessWidget {
   Widget GetExampleItem(context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PopupItems(),
-          ),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => PopupItem(),
+        //   ),
+        // );
       },
       child: Container(
         padding: const EdgeInsets.only(top: 2.0),
@@ -57,7 +57,7 @@ class ItemWidget extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => PopupItems(),
+            builder: (context) => PopupItem(item),
           ),
         );
       },
