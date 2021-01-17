@@ -1,5 +1,5 @@
 name: app
-description: A new Flutter project.
+description: Hack the North 
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -23,8 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  image_picker: ^0.6.6+5
+    
+  fl_chart: ^0.12.2
+  image_picker: ^0.6.7
   tflite: ^1.1.1
   tflite_flutter: ^0.5.0
   tflite_flutter_helper: ^0.1.2

@@ -9,6 +9,9 @@ import 'package:http/http.dart' as http;
 
 class Remind {
   static var _singleton;
+  // static String ngrok = "http://c924e91ed0cf.ngrok.io";
+  static String ngrok = "http://45.79.199.42:8003";
+  
   Remind._internal();
 
   factory Remind() {
@@ -19,7 +22,7 @@ class Remind {
   }
 
   Future<String> uploadFile2(path) async {
-    var request = http.MultipartRequest('POST', Uri.parse('http://f17b5a14db3d.ngrok.io/file_upload'));
+    var request = http.MultipartRequest('POST', Uri.parse('${ngrok}/file_upload'));
     request.files.add(await http.MultipartFile.fromPath('file', path));
     http.StreamedResponse response = await request.send();
 
@@ -34,11 +37,20 @@ class Remind {
     }
   }
 
-  String _userId;
-  List <String> family;
+  Future<String> detect(path) async {
+    var request = http.MultipartRequest('POST', Uri.parse('${ngrok}/file_upload'));
+    request.files.add(await http.MultipartFile.fromPath('file', path));
+    http.StreamedResponse response = await request.send();
 
-
-
-
+    if (response.statusCode == 200) {
+      String url = await response.stream.bytesToString();
+      print("print: response: ${url}");
+      return url;
+    }
+    else {
+      print(response.reasonPhrase);
+      throw Exception("Failed to upload image and get url ${response.reasonPhrase}");
+    }
+  }
 
 }
