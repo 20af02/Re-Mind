@@ -22,5 +22,9 @@
   <string>1.0</string>
   <key>MinimumOSVersion</key>
   <string>8.0</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>Needed to access location</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Needed to access location</string>
 </dict>
 </plist>
