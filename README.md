@@ -37,10 +37,5 @@ where `path` is the absolute path of the source code.
   <img src="helper/Screen-Recording-20210117-090335.gif" width="300" />
 </p>
 
-### Example Object tracking
-<p float="left">
-  <img src="helper/Screen-Recording-20210117-090335.gif" width="300" />
-</p>
-
 ### Developer Notes
 Video: [Youtube]https://youtu.be/Hc7vem3fY04
