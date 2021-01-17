@@ -35,7 +35,6 @@ class _SignupPage extends State<SignupPage> {
             Container(
               padding: EdgeInsets.all(10),
               child: TextField(
-                obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Username',

@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Re-Mind',
-      // home: LoginPage(),
-      home: Tabs(),
+      home: LoginPage(),
+      // home: Tabs(),
       // home: Tabs(),
     );
   }
