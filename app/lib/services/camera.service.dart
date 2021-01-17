@@ -26,13 +26,13 @@ class CameraService {
     this._cameraController = CameraController(
       this._cameraDescription,
       ResolutionPreset.high,
-      enableAudio: false,
+      // enableAudio: false,
     );
 
     // sets the rotation of the image
-    this._cameraRotation = rotationIntToImageRotation(
-      this._cameraDescription.sensorOrientation,
-    );
+    // this._cameraRotation = rotationIntToImageRotation(
+    //   // this._cameraDescription.sensorOrientation,
+    // );
 
     // Next, initialize the controller. This returns a Future.
     return this._cameraController.initialize();

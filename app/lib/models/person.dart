@@ -1,11 +1,9 @@
-enum Relation {
-  friend,
-  coworker,
-  family,
-  unknown
-}
+enum Relation { friend, coworker, family, unknown }
 
-Person isaiah = Person(name: "Isaiah", relation: Relation.friend, description: "Pro coder, and insomnomaniac (ex google intern)");
+Person isaiah = Person(
+    name: "Isaiah",
+    relation: Relation.friend,
+    description: "Pro coder, and insomnomaniac (ex google intern)");
 Person detected = isaiah;
 
 class Person {
@@ -14,5 +12,5 @@ class Person {
   Relation relation = Relation.unknown;
   String lastLocation = "";
 
-  Person({this.name, this.description, this.relation, this.lastLocation})
+  Person({this.name, this.description, this.relation, this.lastLocation});
 }
