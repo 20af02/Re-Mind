@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/widgets/people_widget.dart';
 
 class PeoplePage extends StatefulWidget {
   PeoplePage({Key key}) : super(key: key);
@@ -17,14 +18,17 @@ class _PeoplePageState extends State<PeoplePage> {
         title: Text(widget.title),
         backgroundColor: Colors.brown,
       ),
-      body: Center(
+      body:
+          /*Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(widget.title),
+            //Text(widget.title),
+            PeopleWidget(),
           ],
         ),
-      ),
+      ),*/
+          PeopleWidget(),
     );
   }
 }
