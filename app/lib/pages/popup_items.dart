@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:app/pages/tabs/people_page.dart';
 import 'package:app/pages/signup_page.dart';
 
-class PopupPeople extends StatefulWidget {
-  PopupPeople({Key key}) : super(key: key);
+class PopupItems extends StatefulWidget {
+  PopupItems({Key key}) : super(key: key);
 
   final String title = "Landing Page";
 
   @override
-  _PopupPeopleState createState() => _PopupPeopleState();
+  _PopupItemsState createState() => _PopupItemsState();
 }
 
-class _PopupPeopleState extends State<PopupPeople> {
+class _PopupItemsState extends State<PopupItems> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
@@ -43,16 +43,6 @@ class _PopupPeopleState extends State<PopupPeople> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Edit Name',
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(0),
-              child: TextField(
-                controller: passwordController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Edit Last Name',
                 ),
               ),
             ),
