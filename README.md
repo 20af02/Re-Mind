@@ -1,4 +1,7 @@
 # Re-Mind
+
+<p align="center"><img src="helper/rememberbetter.png"\></p>
+
 Put your head in the cloud.
 
 A HackTheNorth2020++ mobile application designed to help those with Dementia.
@@ -25,15 +28,19 @@ where `path` is the absolute path of the source code.
 
 ### Screenshot(s)
 <p float="left">
-  <img src="helper/Screenshot_20210117-082128.jpg" width="150" />
-  <img src="simulator.gif" width="150" /> 
+  <img src="helper/Screenshot_20210117-082128.jpg" width="300" />
+  <img src="helper/simulator.gif" width="300" /> 
 </p>
 
 ### Example Person tracking
-<p align="center"><img src="helper/Screenshot_20210117-082128.jpg"\></p>
+<p float="left">
+  <img src="Screen-Recording-20210117-090335.gif" width="300" />
+</p>
 
 ### Example Object tracking
-<p align="center"><img src="helper/Screenshot_20210117-082128.jpg"\></p>
+<p float="left">
+  <img src="Screen-Recording-20210117-090335.gif" width="300" />
+</p>
 
 ### Developer Notes
-Videos: 
+Video: [Youtube]https://youtu.be/Hc7vem3fY04
