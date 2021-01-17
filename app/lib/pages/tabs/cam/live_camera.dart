@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import './bounding_box.dart';
-import './camera_feed.dart';
 import './camera.dart';
 import 'dart:math' as math;
 import 'package:tflite/tflite.dart';
@@ -50,7 +49,7 @@ class _LiveFeedState extends State<LiveFeed> {
       children: <Widget>[
         // CameraFeed(widget.cameras, setRecognitions, widget.cameraIndex),
         CameraScreen(setRecognitions: setRecognitions),
-        
+
         BoundingBox(
           _recognitions == null ? [] : _recognitions,
           math.max(_imageHeight, _imageWidth),

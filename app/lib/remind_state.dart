@@ -18,46 +18,27 @@ class Remind {
     return _singleton;
   }
 
-  Future<String> uploadFile(File _imageFile) async {
-    var storage = AzureStorage.parse('your connection string');
-    try {
-      String fileName = basename(_imageFile.path);
-      // read file as Uint8List
-      Uint8List content = await _imageFile.readAsBytes();
-      var storage = AzureStorage.parse('<storage account connection string>');
-      
-      String container = "image";
-
-      // get the mine type of the file
-      String contentType = lookupMimeType(fileName);
-
-      await storage.putBlob('/$container/$fileName',
-          bodyBytes: content,
-          contentType: contentType,
-          type: BlobType.BlockBlob);
-      print("done");
-    } on AzureStorageException catch (ex) {
-      print(ex.message);
-    } catch (err) {
-      print(err);
-    }
-  }
-
   Future<String> uploadFile2(path) async {
-    var request = http.MultipartRequest('POST', Uri.parse('http://7ca1e1bb8244.ngrok.io/file_upload'));
-    // request.files.add(await http.MultipartFile.fromPath('file', '/Users/isaiah/Dev/BallahTech/Projects/Hackathons/Re-Mind/poggers.png'));
+    var request = http.MultipartRequest('POST', Uri.parse('http://f17b5a14db3d.ngrok.io/file_upload'));
     request.files.add(await http.MultipartFile.fromPath('file', path));
-
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
-      print(await response.stream.bytesToString());
+      String url = await response.stream.bytesToString();
+      print("print: response: ${url}");
+      return url;
     }
     else {
       print(response.reasonPhrase);
+      throw Exception("Failed to upload image and get url ${response.reasonPhrase}");
     }
-
   }
+
+  String _userId;
+  List <String> family;
+
+
+
 
 
 }

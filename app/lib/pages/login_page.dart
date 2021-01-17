@@ -28,18 +28,7 @@ class _State extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.face_unlock_outlined),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => FaceLoginPage(),
-              ),
-            );
-            print(nameController.text);
-            print(passwordController.text);
-          },
-        ),
+            child: Icon(Icons.face_unlock_outlined), onPressed: onFaceUnlock),
         body: Padding(
             padding: EdgeInsets.all(10),
             child: ListView(
@@ -91,43 +80,57 @@ class _State extends State<LoginPage> {
                     height: 50,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.brown[200],
-                      child: Text('Login'),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Tabs(),
-                          ),
-                        );
-                        print(nameController.text);
-                        print(passwordController.text);
-                      },
-                    )),
+                        textColor: Colors.white,
+                        color: Colors.brown[200],
+                        child: Text('Login'),
+                        onPressed: onLogin)),
                 Container(
                     child: Row(
                   children: <Widget>[
                     Text('Dont have an account?'),
                     FlatButton(
-                      textColor: Colors.brown[200],
-                      child: Text(
-                        'Create Account',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignupPage(),
-                          ),
-                        );
-                      },
-                    )
+                        textColor: Colors.brown[200],
+                        child: Text(
+                          'Create Account',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onPressed: onSignup)
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
                 ))
               ],
             )));
+  }
+
+  void onFaceUnlock() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        // builder: (context) => SignIn(),
+        builder: (context) => FaceLoginPage(),
+      ),
+    );
+    print(nameController.text);
+    print(passwordController.text);
+  }
+
+  void onLogin() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Tabs(),
+      ),
+    );
+    print(nameController.text);
+    print(passwordController.text);
+  }
+
+  void onSignup() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SignupPage(),
+      ),
+    );
   }
 }

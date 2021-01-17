@@ -46,6 +46,9 @@ class BoundingBox extends StatelessWidget {
           if (_y < difH / 2) h -= (difH / 2 - _y) * scaleH;
         }
 
+        print(re["detectedClass"]);
+        if (re["detectedClass"] != "person") return Container();
+
         return Positioned(
           left: math.max(0, x),
           top: math.max(0, y),

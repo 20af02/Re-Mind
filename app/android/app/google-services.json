@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267540356757",
+    "project_id": "remind-htn",
+    "storage_bucket": "remind-htn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267540356757:android:ff4a05fb90f2adb061059c",
+        "android_client_info": {
+          "package_name": "io.ballah.remind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267540356757-grpjh7rc1les8v8gnf49v0j7tmbbied9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0RkmaMeyBDLy5200mnpDimJ65jMa94Hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267540356757-grpjh7rc1les8v8gnf49v0j7tmbbied9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

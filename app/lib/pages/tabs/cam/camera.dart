@@ -1,9 +1,9 @@
-import './preview_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tflite/tflite.dart';
+import 'dart:math' as math;
 
 typedef void Callback(List<dynamic> list, int h, int w);
 
@@ -59,7 +59,7 @@ class _CameraScreenState extends State<CameraScreen>
               imageMean: 127.5,
               imageStd: 127.5,
               numResultsPerClass: 1,
-              threshold: 0.6,
+              threshold: 0.5,
               asynch: true,
             ).then((recognitions) {
               /*
@@ -69,7 +69,6 @@ class _CameraScreenState extends State<CameraScreen>
                 widget.setRecognitions(recognitions, img.height, img.width);
               isDetecting = false;
             });
-
           }
         } catch (e) {
           print("print: error: " + e.toString());
@@ -162,13 +161,13 @@ class _CameraScreenState extends State<CameraScreen>
       await cameraController.takePicture(path).then((value) {
         print('here');
         print(path);
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => PreviewPage(
-                      imgPath: path,
-                      fileName: "$name.png",
-                    )));
+        //   Navigator.push(
+        //       context,
+        //       // MaterialPageRoute(
+        //       //     builder: (context) => PreviewPage(
+        //       //           imgPath: path,
+        //       //           fileName: "$name.png",
+        //       //         )));
       });
     } catch (e) {
       showCameraException(e);
@@ -195,6 +194,23 @@ class _CameraScreenState extends State<CameraScreen>
 
   @override
   Widget build(BuildContext context) {
+    var tmp = MediaQuery.of(context).size;
+    var screenH = math.max(tmp.height, tmp.width);
+    var screenW = math.min(tmp.height, tmp.width);
+    tmp = cameraController.value.previewSize;
+    var previewH = math.max(tmp.height, tmp.width);
+    var previewW = math.min(tmp.height, tmp.width);
+    var screenRatio = screenH / screenW;
+    var previewRatio = previewH / previewW;
+
+    Widget cam = OverflowBox(
+      maxHeight:
+          screenRatio > previewRatio ? screenH : screenW / previewW * previewH,
+      maxWidth:
+          screenRatio > previewRatio ? screenH / previewH * previewW : screenW,
+      child: cameraPreview(),
+    );
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -206,7 +222,7 @@ class _CameraScreenState extends State<CameraScreen>
 //            ),
             Align(
               alignment: Alignment.center,
-              child: cameraPreview(),
+              child: cam,
             ),
             Align(
               alignment: Alignment.bottomCenter,

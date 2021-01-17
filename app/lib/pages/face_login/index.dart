@@ -1,4 +1,3 @@
-import 'package:app/remind_state.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
 import 'package:app/pages/signup_page.dart';
@@ -8,7 +7,6 @@ import 'package:camera/camera.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tflite/tflite.dart';
 import './preview_page.dart';
-
 
 class FaceLoginPage extends StatefulWidget {
   @override
@@ -23,13 +21,9 @@ class _State extends State<FaceLoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(),
-        body: LoginCameraScreen()
-    );
+    return Scaffold(appBar: AppBar(), body: LoginCameraScreen());
   }
 }
-
 
 typedef void Callback(List<dynamic> list, int h, int w);
 typedef void CameraFrameCallback(CameraImage image);
@@ -44,7 +38,6 @@ class LoginCameraScreen extends StatefulWidget {
   _LoginCameraScreenState createState() => _LoginCameraScreenState();
 }
 
-
 class _LoginCameraScreenState extends State<LoginCameraScreen>
     with WidgetsBindingObserver {
   CameraController cameraController;
@@ -58,7 +51,8 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
       await cameraController.dispose();
     }
 
-    cameraController = CameraController(cameraDescription, ResolutionPreset.high);
+    cameraController =
+        CameraController(cameraDescription, ResolutionPreset.high);
 
     cameraController.addListener(() {
       if (mounted) {
@@ -105,7 +99,6 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
       //   }
       // });
 
-
     } catch (e) {
       showCameraException(e);
     }
@@ -115,18 +108,13 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
     }
   }
 
-
-
   /// Display camera preview
   Widget cameraPreview() {
     if (cameraController == null || !cameraController.value.isInitialized) {
       return Text(
         'Loading',
         style: TextStyle(
-          color: Colors.white, 
-          fontSize: 20.0, 
-          fontWeight: FontWeight.bold
-        ),
+            color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
       );
     }
 
@@ -173,17 +161,19 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
       child: Align(
         alignment: Alignment.centerLeft,
         child: FlatButton.icon(
-          onPressed: () {onSwitchCamera();},
-          icon: Icon(
-            getCameraLensIcons(lensDirection),
-            color: Colors.white,
-            size: 24,
-          ),
-          label: Text(
-            '${lensDirection.toString().substring(lensDirection.toString().indexOf('.') + 1).toUpperCase()}',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
-          )
-        ),
+            onPressed: () {
+              onSwitchCamera();
+            },
+            icon: Icon(
+              getCameraLensIcons(lensDirection),
+              color: Colors.white,
+              size: 24,
+            ),
+            label: Text(
+              '${lensDirection.toString().substring(lensDirection.toString().indexOf('.') + 1).toUpperCase()}',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+            )),
       ),
     );
   }
@@ -195,20 +185,15 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
       final path = "${p.path}/$name.png";
 
       await cameraController.takePicture(path).then((value) {
-        print('print: here');
-        print("print: ${path}");
-
+        print('here');
+        print(path);
         Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PreviewPage(
-              imgPath: path,
-              fileName: "$name.png",
-            )
-          )
-        );
-
-        Remind().uploadFile2(path);
+            context,
+            MaterialPageRoute(
+                builder: (context) => PreviewLoginPage(
+                      imgPath: path,
+                      fileName: "$name.png",
+                    )));
       });
     } catch (e) {
       showCameraException(e);
@@ -225,8 +210,7 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
           selectedCameraIndex = 1;
         });
         initCamera(cameras[selectedCameraIndex]).then((value) {});
-      } 
-      else if (cameras.length > 0) {
+      } else if (cameras.length > 0) {
         setState(() {
           selectedCameraIndex = 0;
         });
@@ -246,10 +230,10 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
       body: Container(
         child: Stack(
           children: <Widget>[
-//            Expanded(
-//              flex: 1,
-//              child: _cameraPreviewWidget(),
-//            ),
+            // Expanded(
+            //   flex: 1,
+            //   child: _cameraPreviewWidget(),
+            // ),
             Align(
               alignment: Alignment.center,
               child: cameraPreview(),
