@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:app/widgets/item_widget.dart';
 
 class ItemPage extends StatefulWidget {
   ItemPage({Key key}) : super(key: key);
 
-  final String title = "Items Page";
+  final String title = "Peoples Page";
 
   @override
   _ItemPageState createState() => _ItemPageState();
@@ -17,14 +18,17 @@ class _ItemPageState extends State<ItemPage> {
         title: Text(widget.title),
         backgroundColor: Colors.brown,
       ),
-      body: Center(
+      body:
+          /*Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(widget.title),
+            //Text(widget.title),
+            PeopleWidget(),
           ],
         ),
-      ),
+      ),*/
+          ItemWidget(),
     );
   }
 }

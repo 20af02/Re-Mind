@@ -4,7 +4,7 @@ import 'package:app/widgets/people_widget.dart';
 class PeoplePage extends StatefulWidget {
   PeoplePage({Key key}) : super(key: key);
 
-  final String title = "Peoples Page";
+  final String title = "People Page";
 
   @override
   _PeoplePageState createState() => _PeoplePageState();
