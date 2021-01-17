@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:app/pages/tabs/people_page.dart';
 import 'package:app/pages/signup_page.dart';
 import 'package:app/pages/tabs/tabs.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/cupertino.dart';
 
 class PopupPeople extends StatefulWidget {
   PopupPeople({Key key}) : super(key: key);
@@ -137,9 +139,70 @@ class _PopupPeopleState extends State<PopupPeople> {
                       indent: 20,
                       endIndent: 0,
                     ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: LineChart(LineChartData(
+                        titlesData: FlTitlesData(
+                            show: true,
+                            leftTitles:
+                                SideTitles(reservedSize: 6, showTitles: true)),
+                        borderData: FlBorderData(show: false),
+                        lineBarsData: linesBarData1(),
+                      )),
+                    ),
                   ]),
                 ])),
           ])),
     );
+  }
+
+  List<LineChartBarData> linesBarData1() {
+    final LineChartBarData lineChartBarData2 = LineChartBarData(
+      spots: [
+        FlSpot(1, 1),
+        FlSpot(3, 2.8),
+        FlSpot(7, 1.2),
+        FlSpot(10, 2.8),
+        FlSpot(12, 2.6),
+        FlSpot(13, 3.9),
+      ],
+      isCurved: true,
+      colors: [
+        const Color(0xffaa4cfc),
+      ],
+      barWidth: 3,
+      isStrokeCapRound: true,
+      dotData: FlDotData(
+        show: false,
+      ),
+      belowBarData: BarAreaData(show: false, colors: [
+        const Color(0x00aa4cfc),
+      ]),
+    );
+    final LineChartBarData lineChartBarData3 = LineChartBarData(
+        spots: [
+          FlSpot(1, 2.8),
+          FlSpot(3, 1.9),
+          FlSpot(6, 3),
+          FlSpot(10, 1.3),
+          FlSpot(13, 2.5),
+        ],
+        isCurved: true,
+        colors: const [
+          Color(0xff27b6fc),
+        ],
+        barWidth: 3,
+        isStrokeCapRound: true,
+        dotData: FlDotData(
+          show: false,
+        ),
+        belowBarData: BarAreaData(
+          show: false,
+        ),
+        dashArray: [5, 10]);
+    return [
+      lineChartBarData2,
+      lineChartBarData3,
+    ];
   }
 }
