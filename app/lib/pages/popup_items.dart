@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:app/pages/tabs/people_page.dart';
 import 'package:app/pages/signup_page.dart';
+import 'package:app/widgets/item_widget.dart';
+import 'package:app/pages/tabs/tabs.dart';
 
 class PopupItems extends StatefulWidget {
   PopupItems({Key key}) : super(key: key);
@@ -30,12 +32,19 @@ class _PopupItemsState extends State<PopupItems> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(0),
                 child: Text(
-                  'New Face',
+                  'New Item',
                   style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.brown[200]),
                 )),
+            const Divider(
+              color: Colors.brown,
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 0,
+            ),
             Container(
               padding: EdgeInsets.all(0),
               child: TextField(
@@ -67,7 +76,7 @@ class _PopupItemsState extends State<PopupItems> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => (PeoplePage()),
+                        builder: (context) => (Tabs()),
                       ),
                     );
                     print(nameController.text);
@@ -75,6 +84,13 @@ class _PopupItemsState extends State<PopupItems> {
                     print(descriptionController);
                   },
                 )),
+            const Divider(
+              color: Colors.brown,
+              height: 20,
+              thickness: 1,
+              indent: 20,
+              endIndent: 0,
+            ),
             Container(
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -92,12 +108,26 @@ class _PopupItemsState extends State<PopupItems> {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                    const Divider(
+                      color: Colors.black,
+                      height: 20,
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 0,
+                    ),
                     Container(
                       padding: const EdgeInsets.all(32),
                       child: Text('Jan 17 1:09AM',
                           softWrap: true, textAlign: TextAlign.center),
                       //there should automatically be interactions and dates that popup here
-                    )
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                      height: 20,
+                      thickness: 5,
+                      indent: 20,
+                      endIndent: 0,
+                    ),
                   ]),
                 ])),
           ])),
