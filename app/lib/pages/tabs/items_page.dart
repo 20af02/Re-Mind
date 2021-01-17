@@ -4,7 +4,7 @@ import 'package:app/widgets/item_widget.dart';
 class ItemPage extends StatefulWidget {
   ItemPage({Key key}) : super(key: key);
 
-  final String title = "Peoples Page";
+  final String title = "Items Page";
 
   @override
   _ItemPageState createState() => _ItemPageState();
