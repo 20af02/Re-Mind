@@ -25,7 +25,7 @@ where `path` is the absolute path of X.
 
 ### Screenshot(s)
 <p align="center"><img src="helper/Screenshot_20210117-082128.jpg"\></p>
-<p align="center"><img src="simulator.gif"\></p>
+<p align="center"><img src="helper/simulator.gif"\></p>
 
 ### Example Person tracking
 <p align="center"><img src="helper/Screenshot_20210117-082128.jpg"\></p>
