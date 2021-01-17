@@ -1,3 +1,4 @@
+import 'package:app/pages/face_login/index.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
 import 'package:app/pages/signup_page.dart';
@@ -26,6 +27,19 @@ class _State extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.face_unlock_outlined),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FaceLoginPage(),
+              ),
+            );
+            print(nameController.text);
+            print(passwordController.text);
+          },
+        ),
         body: Padding(
             padding: EdgeInsets.all(10),
             child: ListView(

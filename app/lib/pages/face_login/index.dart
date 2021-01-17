@@ -1,6 +1,6 @@
+import 'package:app/remind_state.dart';
 import 'package:flutter/material.dart';
 import 'package:app/widgets/photo_logo.dart';
-import 'package:app/pages/home_page.dart';
 import 'package:app/pages/signup_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -195,8 +195,9 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
       final path = "${p.path}/$name.png";
 
       await cameraController.takePicture(path).then((value) {
-        print('here');
-        print(path);
+        print('print: here');
+        print("print: ${path}");
+
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -206,6 +207,8 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
             )
           )
         );
+
+        Remind().uploadFile2(path);
       });
     } catch (e) {
       showCameraException(e);
@@ -217,7 +220,13 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
     super.initState();
     availableCameras().then((value) {
       cameras = value;
-      if (cameras.length > 0) {
+      if (cameras.length > 1) {
+        setState(() {
+          selectedCameraIndex = 1;
+        });
+        initCamera(cameras[selectedCameraIndex]).then((value) {});
+      } 
+      else if (cameras.length > 0) {
         setState(() {
           selectedCameraIndex = 0;
         });
@@ -256,7 +265,7 @@ class _LoginCameraScreenState extends State<LoginCameraScreen>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     cameraToggle(),
-                    // cameraControl(context),
+                    cameraControl(context),
                     Spacer(),
                   ],
                 ),
